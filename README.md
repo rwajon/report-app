@@ -26,32 +26,32 @@ Hide element on medium screen
 Hide element on small screen
 `.hide-on-small`
 
-### Border
+## Border
 
 Initiate border
 `.border`
 
-### Border color
+## Border color
 White
-`.b-lite`
+`.border-lite`
 
 Grey
-`.b-grey`
+`.border-grey`
 
 Red
-`.b-red`
+`.border-red`
 
 Black
-`.b-red`
+`.border-red`
 
 Indigo
-`.b-indigo`
+`.border-indigo`
 
 
-### Clearfix
+## Clearfix
 `.clear`
 
-#### Aligment
+### Aligment
 
 Center
 `.center-align`
@@ -70,33 +70,33 @@ Right
 
 Small padding
 
-`.s-padding`
-`.s-h-padding`
-`.s-v-padding`
+`.small-padding`
+`.small-h-padding`
+`.small-v-padding`
 
 Medium padding
 
-`.m-padding`
-`.m-h-padding`
-`.m-v-padding`
+`.medium-padding`
+`.medium-h-padding`
+`.medium-v-padding`
 
 Large padding
 
-`.l-padding`
-`.l-h-padding`
-`.l-v-padding`
+`.large-padding`
+`.large-h-padding`
+`.large-v-padding`
 
 Extra large padding
 
-`.xl-padding`
-`.xl-h-padding`
-`.xl-v-padding`
+`.xlarge-padding`
+`.xlarge-h-padding`
+`.xlarge-v-padding`
 
 Extra large padding
 
-`.xxl-padding`
-`.xxl-h-padding`
-`.xxl-v-padding`
+`.xxlarge-padding`
+`.xxlarge-h-padding`
+`.xxlarge-v-padding`
 
 ## 3. Playing with Margins
 
@@ -105,46 +105,46 @@ Extra large padding
 
 Small margin
 
-`.s-margin`
-`.s-h-margin`
-`.s-v-margin`
+`.small-margin`
+`.small-h-margin`
+`.small-v-margin`
 
 Medium margin
-`.m-margin`
-`.m-h-margin`
-`.m-v-margin`
+`.medium-margin`
+`.medium-h-margin`
+`.medium-v-margin`
 
 Large padding
-`.l-margin`
-`.l-h-margin`
-`.l-v-margin`
+`.large-margin`
+`.large-h-margin`
+`.large-v-margin`
 
 Extra large padding
-`.xl-margin`
-`.xl-h-margin`
-`.xl-v-margin`
+`.xlarge-margin`
+`.xlarge-h-margin`
+`.xlarge-v-margin`
 
 Extra large padding
-`.xxl-margin`
-`.xxl-h-margin`
-`.xxl-v-margin`
+`.xxlarge-margin`
+`.xxlarge-h-margin`
+`.xxlarge-v-margin`
 
 ## 4. Typography
 
 Small text
-`.s-text`
+`.small-text`
 
 Medium text
-`.m-text`
+`.medium-text`
 
 Large text
-`.l-text`
+`.large-text`
 
 Extra large text
-`.xl-text`
+`.xlarge-text`
 
 Extra-extra large text
-`.xxl-text`
+`.xxlarge-text`
 
 
 ## 5. grid
@@ -154,7 +154,16 @@ Grid must be wrap in row
 
 |  | Small  |  Medium | Large |
 | ------- | --- | --- | --- |
-| Prefix | `.s` | `.m` | `.l` |
+| Prefix | `.small-screen-` | `.medium-screen-` | `.large-screen-` |
+
+### Note
+- -1: 25%
+- -2: 50%
+- -3: 75%
+- -4: 100% 
+
+### Example:
+`<div class="small-screen-1>foo </div>`
 
 ## 6. Color palette
 
@@ -168,7 +177,7 @@ Grey
 `.grey`
 
 Indigo
-`.indigo`
+`.blue`
 
 - Add `text- ` prefix before the defined color class to apply it on text 
 
@@ -189,7 +198,7 @@ Input, textarea, radio, checkbox and button must be in `.input-field` `div` or `
 ## 8. Button
 
 Initiate button
-`.btn`
+`.button`
 
 
 ## 9. Managing Image
