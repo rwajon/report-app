@@ -15,4 +15,11 @@ router.post('/signup', cheke({
   },
 }), UserController.signup);
 
+router.post('/login', cheke({
+  body: {
+    email: 'required|string|min:7',
+    password: 'required|string|min:5',
+  },
+}), UserController.login);
+
 export default router;
