@@ -9,7 +9,7 @@ Style V.0.1
 /* preset */
 body{margin:0;font-family: 'Open Sans', sans-serif;margin-top:80px}
 a{color:#282667;text-decoration: none!important}
-button.linkHover:hover{opacity: 0.7;}
+button:hover, a:hover{opacity: 0.7;}
 
 
 article,
