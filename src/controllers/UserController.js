@@ -39,7 +39,7 @@ export default class UserController {
 
         delete newUser.dataValues.password;
 
-        return res.status(200).json({
+        return res.status(201).json({
           data: [newUser.dataValues],
           token,
         });
