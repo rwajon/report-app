@@ -261,7 +261,7 @@ Input, textarea, radio, checkbox and button must be in `.input-field` `div` or `
         </div>
         <div class="clear"></div>
         <div class="input-field">
-            <button type="submit" class="btn indigo linkHover text-white bold radius-6 m-text l-padding">
+            <button type="submit" class="button blue text-white bold radius-6 m-text l-padding">
                 Log In
             </button>
         </div>
