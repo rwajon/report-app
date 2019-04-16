@@ -1,4 +1,5 @@
 import express from 'express';
+import usersRouter from './routes/users';
 
 const app = express();
 
@@ -7,10 +8,6 @@ app.use(express.urlencoded({
   extended: false,
 }));
 
-app.use('/api/v1', (req, res) => {
-  return res.status(200).json({
-    message: 'Welcome',
-  });
-});
+app.use('/api/v1/auth', usersRouter);
 
 export default app;
