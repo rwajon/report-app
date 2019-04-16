@@ -52,4 +52,41 @@ export default class UserController {
       error: 'Oups, something went wrong!',
     });
   }
+
+  static async login(req, res) {
+    try {
+      const checkUser = await User.findAll({
+        where: {
+          email: req.body.email,
+        },
+      });
+
+      if (checkUser.length > 0
+        && bcrypt.compareSync(req.body.password, checkUser[0].dataValues.password)) {
+        const token = jwt.sign({
+          email: checkUser[0].dataValues.email,
+          userType: checkUser[0].dataValues.isAdmin,
+        }, process.env.SECRET_KEY, {
+          expiresIn: 86400, // expires in 24 hours
+        });
+
+        delete checkUser[0].dataValues.password;
+
+        return res.status(200).json({
+          data: [checkUser[0].dataValues],
+          token,
+        });
+      }
+
+      return res.status(200).json({
+        error: 'Sorry, this account doesn\'t exist',
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      error: 'Oups, something went wrong!',
+    });
+  }
 }
