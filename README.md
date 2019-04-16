@@ -11,8 +11,15 @@ To get started, call css file in the html page
 
 ## 1. Style helpers
 
-Wrap element with max width of 1280px
+Wrap element with max width of 1100px
 `.container`
+
+Content card
+```
+    <div class="card white radius-3 shadow-2">
+        Hello World
+    </div>
+```
 
 Hide element
 `.hide`
@@ -25,6 +32,30 @@ Hide element on medium screen
 
 Hide element on small screen
 `.hide-on-small`
+
+Capitilize text
+`.capitilize`
+
+Uppercase text
+`.uppercase`
+
+Bold text 
+`.bold`
+
+No padding
+`.no-padding`
+
+No margin
+`.no-margin`
+
+No border
+`.no-border`
+
+No radius
+`.no-radius`
+
+Divider(a colored lign between 2 sections of content)
+`<div class="divider grey"></div>`
 
 ## Border
 
@@ -44,8 +75,8 @@ Red
 Black
 `.border-red`
 
-Indigo
-`.border-indigo`
+blue
+`.border-blue`
 
 
 ## Clearfix
@@ -131,19 +162,19 @@ Extra large padding
 
 ## 4. Typography
 
-Small text
+Small text(12px)
 `.small-text`
 
-Medium text
+Medium text(16px)
 `.medium-text`
 
-Large text
+Large text(20px)
 `.large-text`
 
-Extra large text
+Extra large text(32px)
 `.xlarge-text`
 
-Extra-extra large text
+Extra-extra large text(45px)
 `.xxlarge-text`
 
 
@@ -157,13 +188,43 @@ Grid must be wrap in row
 | Prefix | `.small-screen-` | `.medium-screen-` | `.large-screen-` |
 
 ### Note
-- -1: 25%
-- -2: 50%
-- -3: 75%
-- -4: 100% 
+- class-prefix-1: 25%
+- class-prefix-2: 50%
+- class-prefix-3: 75%
+- class-prefix-4: 100% 
+
 
 ### Example:
-`<div class="small-screen-1>foo </div>`
+```
+<div class="row">
+        <div class="small-screen-4 red medium-screen-2 large-screen-1">Screen width depending on screen size (1)</div>
+        <div class="small-screen-4 blue medium-screen-2 large-screen-1">Screen width depending on screen size (2)</div>
+        <div class="small-screen-4 red medium-screen-2 large-screen-1">Screen width depending on screen size (3)</div>
+        <div class="small-screen-4 red medium-screen-2 large-screen-1">Screen width depending on screen size (4)</div>
+</div>
+```
+
+## 7. Tables
+
+```
+<table class="bordered">
+    <tr class="left-align">
+            <th>Firstname</th>
+            <th>Lastname</th> 
+            <th>Age</th>
+    </tr>
+    <tr>    
+            <td>Jill</td>
+            <td>Smith</td> 
+            <td>50</td>
+    </tr>
+    <tr>
+            <td>Eve</td>
+            <td>Jackson</td> 
+            <td>94</td>
+    </tr>
+</table>
+```
 
 ## 6. Color palette
 
@@ -176,12 +237,16 @@ Black
 Grey
 `.grey`
 
-Indigo
+Blue
 `.blue`
 
 - Add `text- ` prefix before the defined color class to apply it on text 
+### Example
+`<div class="blue text-white">My name is John Doe</div>`
 
-- `darken-1` , `darken-2` and `darken-3` gives option to play with strongness of the color 
+- `darken-1` , `darken-2` and `darken-3` gives option to play with strongness of the given color 
+### Example
+`<div class="blue-darken-1 text-white">My name is John Doe</div>`
 
 ## 7. form
 
@@ -189,10 +254,18 @@ Input, textarea, radio, checkbox and button must be in `.input-field` `div` or `
 
 #### example
 ```
-    <div class="input-field">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="your email">
-    </div>
+    <form action="#" method="#">
+        <div class="input-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your email">
+        </div>
+        <div class="clear"></div>
+        <div class="input-field">
+            <button type="submit" class="btn indigo linkHover text-white bold radius-6 m-text l-padding">
+                Log In
+            </button>
+        </div>
+    </form>
 ```
 
 ## 8. Button
@@ -205,8 +278,15 @@ Initiate button
 
 If your wrap to wrap image to fix the width of a container, you must add `.image` in the parent container of a image
 
+### EXample
+```
+    <div class="image">
+        <img src="#" alt="#">
+    </div>
+```
 
-## Shadow
+
+## 10. Shadow
 
 To add shadow depth in an element, add one of the following classes:
 
@@ -220,6 +300,8 @@ To add shadow depth in an element, add one of the following classes:
 ```.shadow-4```
 
 ```.shadow-5```
+
+
 
 ## Contributors
 
