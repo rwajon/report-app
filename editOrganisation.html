@@ -58,69 +58,34 @@
     <!-- end header -->
     <div class="row">
       <div class="container">
-        <h1 class="bold xxl-text no-margin text-blue">All Organisations</h1>
-        <!-- content -->
-        <div class="card shadow-2 radius-2">
-          <table class="bordered">
-            <tr class="left-align">
-              <th>Id</th>
-              <th>Organisationa name</th>
-              <th>Created on</th>
-              <th>Modified on</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Police</td>
-              <td>15/04/2019</td>
-              <td>15/04/2019</td>
-              <td>
-                <a href="#">
-                  <span class=" fa fa-edit"></span>
-                </a>
-              </td>
-              <td>
-                <a href="#">
-                  <span class=" fa fa-trash"></span>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>MTN</td>
-              <td>15/04/2019</td>
-              <td>15/04/2019</td>
-              <td>
-                <a href="#">
-                  <span class=" fa fa-edit"></span>
-                </a>
-              </td>
-              <td>
-                <a href="#">
-                  <span class=" fa fa-trash"></span>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">
-                  <span class=" fa fa-plus"></span>
-                </a>
-              </td>
-              <td>
-                <a href="./newOrganisation.html">
-                  Create a new organisation
-                </a>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </table>
+        <div class="box">
+          <h1 class="bold xxl-text no-margin text-blue">
+            Edit an Organization
+          </h1>
+          <!-- content -->
+          <div class="card shadow-2 radius-2">
+            <form action="#" method="#">
+              <div class="input-field medium-h-padding">
+                <label for="org-name">Set a new organisation name</label>
+                <input
+                  type="text"
+                  id="organisationName"
+                  placeholder="new organisation's name"
+                />
+              </div>
+              <div class="clear"></div>
+              <div class="input-field">
+                <button
+                  type="submit"
+                  class="button blue text-white bold radius-6 m-text l-padding"
+                >
+                  Edit
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- end content -->
         </div>
-        <!-- end content -->
       </div>
     </div>
 
