@@ -39,11 +39,10 @@ export default class ReportController {
     try{
       await Report.findAll({
         where: {
-          type: "pendings"
+          type: "pending"
         }
       })
       .then(response => {
-        console.log(response.length > 0);
         if(response.length > 0) {
           return res.status(status.OK).send({ status: status.OK, data: response});
         }
