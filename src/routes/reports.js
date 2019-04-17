@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.delete('/:id', ReportController.deleteReport);
 router.get('/pending', ReportController.pendingReports);
+router.get('/verified', ReportController.verifiedReports);
 
 export default router;

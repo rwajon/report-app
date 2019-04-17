@@ -57,4 +57,28 @@ export default class ReportController {
       return res.status(status.BAD_REQUEST).send({ status: status.BAD_REQUEST, error })
     }
   }
+
+  // view verified incidents
+  static async verifiedReports(req, res){
+    try{
+      await Report.findAll({
+        where: {
+          type: "verified"
+        }
+      })
+      .then(response => {
+        if(response.length > 0) {
+          return res.status(status.OK).send({ status: status.OK, data: response});
+        }
+        res.status(status.NOT_FOUND).send({ status: status.NOT_FOUND, error: "No verified incidents found at this time!" });
+        return;
+        
+      })
+      .catch(error => console.log(error));
+      
+    }
+    catch(error){ 
+      return res.status(status.BAD_REQUEST).send({ status: status.BAD_REQUEST, error })
+    }
+  }
 }
