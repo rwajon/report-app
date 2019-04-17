@@ -19,7 +19,7 @@ export default class UserController {
           error: 'Sorry, this account already exists',
         });
       }
-
+      
       const newUser = await User.create({
         fullName: req.body.fullName,
         userName: req.body.userName || '',
