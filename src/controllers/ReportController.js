@@ -33,4 +33,29 @@ export default class ReportController {
       error: 'Ooops, something went wrong!',
     });
   }
+
+  // view pending incidents
+  static async pendingReports(req, res){
+    try{
+      await Report.findAll({
+        where: {
+          type: "pendings"
+        }
+      })
+      .then(response => {
+        console.log(response.length > 0);
+        if(response.length > 0) {
+          return res.status(status.OK).send({ status: status.OK, data: response});
+        }
+        res.status(status.NOT_FOUND).send({ status: status.NOT_FOUND, error: "No pending incidents found at this time!" });
+        return;
+        
+      })
+      .catch(error => console.log(error));
+      
+    }
+    catch(error){ 
+      return res.status(status.BAD_REQUEST).send({ status: status.BAD_REQUEST, error })
+    }
+  }
 }
