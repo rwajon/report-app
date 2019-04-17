@@ -4,7 +4,7 @@
   "description": "ReportApp is a platform that will facilitate citizens to report any incident",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require @babel/register src/tests/index.js",
     "start": "babel-node src/index.js",
     "dev": "nodemon src/index.js --exec babel-node --presets @babel/preset-env",
     "db": "babel-node src/models/index.js --presets @babel/preset-env"
@@ -25,6 +25,7 @@
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.3",
