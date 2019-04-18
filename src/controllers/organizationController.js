@@ -31,6 +31,31 @@ class OrganizationController {
       message: " Oops, Something went wrong!!"
     });
   }
+
+  // delete organization
+  static async deleteOrganization(req, res){
+    try {
+      const { id } = req.params;
+      const checkOrganization = await Organization.findAll({where: { id }});
+      if (checkOrganization) {
+        return res.status(404).json({
+          status: 404,
+          error: `Organization with  id ${id} not found!`,
+        });
+      }
+      const deleteOrganization = await Organization.destroy({where: {id}});
+      return res.status(200).json({
+        status: 200,
+        message: 'Organization deleted successful',
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      error: 'Ooops, something went wrong!',
+    });
+  }
 }
 
 export default OrganizationController;
