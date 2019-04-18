@@ -18,7 +18,7 @@ class OrganizationController {
       const newOrg = await Organization.create({
         name: req.body.organizationName
       });
-      
+
       return res.status(201).json({
         status: 201,
         data: [newOrg.dataValues]
@@ -30,6 +30,26 @@ class OrganizationController {
     res.status(500).json({
       message: " Oops, Something went wrong!!"
     });
+  }
+  static async allOrganizations(req, res) {
+    try {
+      const allOrg = await Organization.findAll({ raw: true });
+      res.status(200).send({
+        message: "All organizations are successfully fetched",
+        data: allOrg
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    res.status(500).json({
+      message: "Oops, Something went wrong!!"
+    });
+  }
+  static async editOrganisation(req, res) {
+    try {
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
