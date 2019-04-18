@@ -95,7 +95,7 @@ export default class ReportController {
     try{
       await Report.findAll({
         where: {
-          type: "pending"
+          status: "pending"
         }
       })
       .then(response => {
@@ -115,11 +115,11 @@ export default class ReportController {
   }
 
   // view verified incidents
-  static async verifiedReports(req, res){
+  static async verifiedReports (req, res){
     try{
       await Report.findAll({
         where: {
-          type: "verified"
+          status: 'verified'
         }
       })
       .then(response => {
