@@ -3,6 +3,6 @@ import ReportController from '../controllers/ReportController';
 
 const router = express.Router();
 
-router.delete('/:id', ReportController.deleteReport);
+router.post('/incident', ReportController.createReport);
 
 export default router;
