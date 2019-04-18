@@ -4,16 +4,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// const sequelize = new Sequelize('postgres://postgres:12345@localhost:5432/reportapp');
-const sequelize = new Sequelize({
-  host: process.env.DB_HOST,
-  database: process.env.DATABASE,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-  dialect: 'postgres',
-  logging: false
-});
+const sequelize = process.env.NODE_ENV === 'production' ? new Sequelize(process.env.DATABASE_URL)
+  : new Sequelize({
+    host: process.env.DB_HOST,
+    database: process.env.DATABASE,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    dialect: 'postgres',
+    logging: false,
+  });
 
 // User
 const User = sequelize.define('user', {

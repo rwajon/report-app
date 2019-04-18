@@ -7,9 +7,14 @@
     "test": "mocha --require @babel/register src/tests/index.js",
     "start": "babel-node src/index.js",
     "dev": "nodemon src/index.js --exec babel-node --presets @babel/preset-env",
-    "db": "babel-node src/models/index.js --presets @babel/preset-env"
+    "db": "babel-node src/models/index.js"
   },
   "dependencies": {
+    "@babel/node": "^7.2.2",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
     "bcryptjs": "^2.4.3",
     "cheke": "^1.0.2",
     "cors": "^2.8.5",
@@ -21,11 +26,6 @@
     "sequelize": "^5.3.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/register": "^7.4.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.3",
