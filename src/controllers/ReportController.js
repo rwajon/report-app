@@ -47,6 +47,21 @@ export default class ReportController {
     });
   }
 
+  static async getReports(req, res) {
+    try {
+      await Report.findAll()
+        .then((response) => {
+          if (response.length > 0) {
+            return res.status(status.OK).send({ status: status.OK, data: response });
+          }
+          res.status(status.NOT_FOUND).send({ status: status.NOT_FOUND, error: 'No reports found' });
+        })
+        .catch(error => console.log(error));
+    } catch (error) {
+      return res.status(status.BAD_REQUEST).send({ status: status.BAD_REQUEST, error });
+    }
+  }
+
   static async deleteReport(req, res) {
     try {
       const { id } = req.params;
