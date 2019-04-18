@@ -40,7 +40,7 @@ export default class reportController {
       console.log(error);
     }
 
-    res.status(500).json({
+    return res.status(500).json({
       message: 'Oops, Something went wrong!!'
     });
   }

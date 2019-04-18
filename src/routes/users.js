@@ -11,7 +11,7 @@ router.post('/signup', cheke({
     phone: { type: 'required|string|min:7', label: 'Phone number' },
     email: 'required|string|min:7',
     password: 'required|string|min:5',
-    isAdmin: 'required|boolean',
+    isAdmin: 'boolean',
   },
 }), UserController.signup);
 
