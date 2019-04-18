@@ -32,10 +32,45 @@ class OrganizationController {
       message: " Oops, Something went wrong!!"
     });
   }
+
+  // edit Organizations
+
+  static async editOrganization(req, res) {
+    try {
+      const checkOrg = await Organization.findAll({
+        where: {
+          id: req.params.id
+        }
+      });
+      console.log(req.params.id);
+      if (checkOrg.length == 0) {
+        return res.status(200).send({
+          error: "Sorry, Organisation with such id doesn't exist"
+        });
+      }
+      const updateOrg = await Organization.update(
+        { name: req.body.organizationName },
+        { where: { id: req.params.id } }
+      );
+      res.status(201).json({
+        status: 201,
+        data: updateOrg.dataValues,
+        message: "the organisation name edited successfully"
+      });
+    } catch (error) {
+      console.log("an error happened");
+    }
+    res.status(500).json({
+      status: 500,
+      message: "Oops, something went wrong"
+    });
+  }
+
+  //Get all organization
   static async allOrganizations(req, res) {
     try {
       const allOrg = await Organization.findAll({ raw: true });
-      
+
       return res.status(200).send({
         message: "All organizations are successfully fetched",
         data: allOrg

@@ -14,6 +14,6 @@ app.use(
 
 app.use("/api/v1/auth", usersRouter);
 app.use("/api/v1/reports", reportsRouter);
-app.use("/api/v1", organizationRouter);
+app.use("/api/v1/organisations", organizationRouter);
 
 export default app;
