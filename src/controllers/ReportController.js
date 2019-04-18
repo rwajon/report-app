@@ -7,45 +7,45 @@ import status from '../config/status';
 
 export default class ReportController {
   static async createReport(req, res) {
-     try {
-       const checkReport = await Report.findAll({
-         where: {
-           type: req.body.type,
-           report: req.body.report,
-           description: req.body.description,
-           latitude: req.body.latitude,
-           longitude: req.body.longitude,
-           status: req.body.status
-         }
-       });
+    try {
+      const checkReport = await Report.findAll({
+        where: {
+          type: req.body.type,
+          report: req.body.report,
+          description: req.body.description,
+          latitude: req.body.latitude,
+          longitude: req.body.longitude,
+          status: req.body.status
+        }
+      });
 
-       if (checkReport.length > 0) {
-         return res.status(409).send({
-           error: 'Sorry, the report already exists'
-         });
-       }
+      if (checkReport.length > 0) {
+        return res.status(409).send({
+          error: 'Sorry, the report already exists'
+        });
+      }
 
-       const newReport = await Report.create({
-         type: req.body.type,
-         report: req.body.report,
-         description: req.body.description,
-         latitude: req.body.latitude,
-         longitude: req.body.longitude,
-         status: req.body.status
-       });
+      const newReport = await Report.create({
+        type: req.body.type,
+        report: req.body.report,
+        description: req.body.description,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+        status: req.body.status
+      });
 
-       return res.status(201).json({
-         status: 201,
-         data: [newReport.dataValues]
-       });
-     } catch (error) {
-       console.log(error);
-     }
+      return res.status(201).json({
+        status: 201,
+        data: [newReport.dataValues]
+      });
+    } catch (error) {
+      console.log(error);
+    }
 
-     return res.status(500).json({
-       message: 'Oops, Something went wrong!!'
-     });
- }
+    return res.status(500).json({
+      message: 'Oops, Something went wrong!!'
+    });
+  }
 
   static async deleteReport(req, res) {
     try {
