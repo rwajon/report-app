@@ -1,14 +1,9 @@
-
-import express from 'express';
-import cors from 'cors';
-import usersRouter from './routes/users';
-import reportsRouter from './routes/reports';
+import express from "express";
+import usersRouter from "./routes/users";
+import reportsRouter from "./routes/reports";
 import organizationRouter from "./routes/organizations";
 
-
 const app = express();
-
-app.use(cors());
 
 app.use(express.json());
 app.use(
@@ -18,9 +13,7 @@ app.use(
 );
 
 app.use("/api/v1/auth", usersRouter);
-app.use("/api/v1/", organizationRouter);
-
-// Reports
-app.use('/api/v1/reports', reportsRouter);
+app.use("/api/v1/reports", reportsRouter);
+app.use("/api/v1", organizationRouter);
 
 export default app;
