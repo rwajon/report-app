@@ -67,7 +67,7 @@ export default class ReportController {
       const { id } = req.params;
       const checkReport = await Report.findAll({
         where: { id }});
-      if (checkReport) {
+      if (!checkReport.length > 0) {
         return res.status(404).json({
           status: 404,
           error: `Report with  id ${id} not found!`,

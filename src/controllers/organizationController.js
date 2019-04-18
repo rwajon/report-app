@@ -88,7 +88,7 @@ class OrganizationController {
     try {
       const { id } = req.params;
       const checkOrganization = await Organization.findAll({ where: { id } });
-      if (checkOrganization) {
+      if (!checkOrganization.length > 0) {
         return res.status(404).json({
           status: 404,
           error: `Organization with  id ${id} not found!`
