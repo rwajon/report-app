@@ -6,6 +6,47 @@ import status from '../config/status';
 // dotenv.config();
 
 export default class ReportController {
+  static async createReport(req, res) {
+    try {
+      const checkReport = await Report.findAll({
+        where: {
+          type: req.body.type,
+          report: req.body.report,
+          description: req.body.description,
+          latitude: req.body.latitude,
+          longitude: req.body.longitude,
+          status: req.body.status
+        }
+      });
+
+      if (checkReport.length > 0) {
+        return res.status(409).send({
+          error: 'Sorry, the report already exists'
+        });
+      }
+
+      const newReport = await Report.create({
+        type: req.body.type,
+        report: req.body.report,
+        description: req.body.description,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+        status: req.body.status
+      });
+
+      return res.status(201).json({
+        status: 201,
+        data: [newReport.dataValues]
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: 'Oops, Something went wrong!!'
+    });
+  }
+
   static async deleteReport(req, res) {
     try {
       const { id } = req.params;
@@ -48,12 +89,12 @@ export default class ReportController {
         }
         res.status(status.NOT_FOUND).send({ status: status.NOT_FOUND, error: "No pending incidents found at this time!" });
         return;
-        
+
       })
       .catch(error => console.log(error));
-      
+
     }
-    catch(error){ 
+    catch(error){
       return res.status(status.BAD_REQUEST).send({ status: status.BAD_REQUEST, error })
     }
   }
@@ -72,12 +113,12 @@ export default class ReportController {
         }
         res.status(status.NOT_FOUND).send({ status: status.NOT_FOUND, error: "No verified incidents found at this time!" });
         return;
-        
+
       })
       .catch(error => console.log(error));
-      
+
     }
-    catch(error){ 
+    catch(error){
       return res.status(status.BAD_REQUEST).send({ status: status.BAD_REQUEST, error })
     }
   }
