@@ -1,6 +1,8 @@
 import { Organization, Report } from "../models";
 
 class OrganizationController {
+  
+  //creata oraganization
   static async create(req, res) {
     try {
       const checkOrg = await Organization.findAll({
