@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.post('/incident', ReportController.createReport);
 router.delete('/:id', ReportController.deleteReport);
+router.get('/', ReportController.getReports);
 router.get('/pending', ReportController.pendingReports);
 router.get('/verified', ReportController.verifiedReports);
 
