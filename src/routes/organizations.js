@@ -3,12 +3,10 @@ import organisationController from "../controllers/organizationController";
 
 const router = Router();
 
-router.post("/newOrganization", organisationController.create);
-router.get("/allOrganisations", organisationController.allOrganizations);
-router.delete("/organizations/:id", organisationController.deleteOrganization);
-router.get(
-  "/organizations/:id/reports/verified",
-  organisationController.verifiedIncidents
-);
+router.post("/new", organisationController.create);
+router.get("/all", organisationController.allOrganizations);
+router.delete("/:id", organisationController.deleteOrganization);
+router.get("/:id/reports/verified", organisationController.verifiedIncidents);
+router.put("/:id", organisationController.editOrganization);
 
 export default router;
